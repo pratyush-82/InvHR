@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 400;
+  font-style: normal;
+  src: local('CircularStd'), url('CircularStd-Book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 500;
+  font-style: normal;
+  src: local('CircularStd'), url('CircularStd-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'CircularStd';
+  font-weight: 700;
+  font-style: normal;
+  src: local('CircularStd'), url('CircularStd-Bold.otf') format('opentype');
+}
+
+
+.calc-gray{
+  background-color: rgb(250, 221, 193);
+}
+.calc-yellow{
+  background-color: rgb(250, 229, 165);
+}
+.calc-orange{
+  background-color: rgb(206, 148, 83);
+}
+.worklog-calc-blue{
+  background-color: rgb(155, 234, 222);
+}
+
+.css-1bci4vh .fc .fc-daygrid-day-number{
+  width: 100%;
+}
+
+/* .css-1bci4vh .fc .fc-event .fc-event-main:after  {
+  background-color: unset!important;
+  opacity: unset!important;
+}
+
+.css-1bci4vh .fc .fc-event .fc-event-main:before{
+  opacity: unset!important;
+  border: unset!important;
+}
+
+.css-1bci4vh .fc .fc-event .fc-event-main{
+  background-color: unset!important;
+} */
+.fc-day-today {
+  background: #C8FACD !important;
+  border: none !important;
+
+}
+/* .css-1bci4vh .fc .fc-day-other .fc-daygrid-day-top .fc-daygrid-day-number{
+  background-color:rgb(74, 46, 100);
+} */
+
+.css-1bci4vh .fc .fc-day-other{
+  background-color:rgb(245, 245, 245);
+}
+.calc-header-p{
+  position: absolute;
+  top:0;
+  left:0;
+  color:red;
+  margin-top: -27px;
+  margin-left: 6px;
+}

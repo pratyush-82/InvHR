@@ -1,0 +1,63 @@
+version: "3"
+services:
+  mongo:
+    container_name: mongodb
+    image: mongo
+    restart: always
+    ports:
+      - "27018:27017"
+    networks:
+      - default
+    volumes:
+      - ./backend/docker-setup/mongo/db-init.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./backend/docker-setup/mongo/mongo-volume:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=InviHR
+      - MONGO_INITDB_USER=InviTestAdmin
+      - MONGO_INITDB_PASSWORD=Invi-123
+      - MONGO_INITDB_CLUSTER=cluster0.fvqeigj
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    networks:
+      - default
+      - frontend
+    # volumes:
+    #   - ./backend:/backend
+    environment:
+      - APP_ENIVERONMENT=production
+    env_file:
+      - ./backend/.env
+    # tty: true
+    # stdin_open: true
+    depends_on:
+      - mongo
+    ports:
+      - "5107:5107"
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    networks:
+      - frontend
+    env_file:
+      - ./frontend/.env
+    # volumes:
+    #   - ./frontend:/frontend
+    depends_on:
+      - backend
+    # tty: true
+    # stdin_open: true
+    ports:
+      - "3011:80"
+
+networks:
+  default:
+    name: backend-network-mern-docker-boilerplate
+  frontend:
+    name: frontend-network-mern-docker-boilerplate
